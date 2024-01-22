@@ -10,7 +10,10 @@ require('dotenv').config();
 
 const port = process.env.PORT || 3000; 
 
-app.use(cors());
+app.use(cors({
+    origin: "https://ptmri.up.railway.app/"
+}));
+
 app.use(express.json());
 
 
