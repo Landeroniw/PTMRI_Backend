@@ -8,9 +8,16 @@ const authenticate = require("./auth/authenticate");
 //importamos las variables de entorno
 require('dotenv').config(); 
 
+app.use(cors());
+
+// Enable CORS for all routes (for development only)
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
+  });
+
 const port = process.env.PORT || 3000; 
 
-app.use(cors());
 
 app.use(express.json());
 
