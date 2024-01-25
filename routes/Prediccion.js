@@ -9,9 +9,9 @@ const Informacion = require("../schema/informacion");
 
 router.post("/", async (req, res)=>{
     
-    const {nombre, apellido, edad, sexo, curp , image, resultado, user} = req.body;
+    const {nombre, apellido, edad, sexo, curp , image, normal, anomalia, user} = req.body;
 
-    if (!nombre || !apellido || !edad || !sexo || !curp || !image || !resultado || !user){
+    if (!nombre || !apellido || !edad || !sexo || !curp || !image || !normal || !anomalia || !user){
         return res.status(400).json(jsonResponse(400, {
             error: "Todos los campos son requeridos", 
         })  
@@ -27,7 +27,7 @@ router.post("/", async (req, res)=>{
             return res.status(400).json(jsonResponse(400, {error: "El CURP ya está registrado",})); 
         }
 
-        const newDatos= new Informacion({nombre, apellido, edad, sexo, curp, image, resultado, user}); 
+        const newDatos= new Informacion({nombre, apellido, edad, sexo, curp, image, normal, anomalia, user}); 
         newDatos.save(); 
         res.status(200).json(jsonResponse(200, {message: "Datos guardados exitosamente"}));
 

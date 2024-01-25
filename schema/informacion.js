@@ -8,7 +8,8 @@ const InformacionSchema = new Mongoose.Schema({
     sexo: {type: String, required: true},
     curp: {type: String, requird: true, unique: true},
     image: {type: String, required: true},
-    resultado: {type: String, required: true},
+    anomalia: {type: String, required: true},
+    normal: {type: String, required: true},
     user: {type: String, required: true}
 });
  
